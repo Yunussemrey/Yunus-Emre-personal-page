@@ -1,0 +1,28 @@
+/* Renk ve ölçü değişkenleri. Siteyi yeniden renklendirmek için sadece burayı değiştir. */
+:root {
+  --paper: #e6e9ec;      /* beton gri zemin */
+  --surface: #f6f7f4;    /* satır hover zemini */
+  --ink: #10233a;        /* ana metin */
+  --muted: #4b5b6e;      /* ikincil metin */
+  --line: #bcc5ce;       /* ince çizgiler */
+  --blue: #1b4aa0;       /* TR plaka bandı mavisi, ana vurgu */
+  --on-blue: #ffffff;
+  --signal: #f2b705;     /* yol çizgisi sarısı, ikincil vurgu */
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+
+  --radius: 6px;
+  --maxw: 1080px;
+}
+
+[data-theme="dark"] {
+  --paper: #121a22;
+  --surface: #1a242e;
+  --ink: #e8edf2;
+  --muted: #9aa9b8;
+  --line: #2c3a47;
+  --blue: #7aa5f5;
+  --on-blue: #0d1a2b;
+  --signal: #f2c230;
+}

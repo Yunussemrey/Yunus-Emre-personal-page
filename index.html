@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yunus Emre | Yazılım Geliştirici ve Bilgi İşlem</title>
+  <meta name="description" content="Yunus Emre: Java, Android ve SQL Server odaklı yazılım geliştirici. Projeler, iş deneyimi ve iletişim bilgileri.">
+  <meta name="author" content="Yunus Emre">
+  <link rel="canonical" href="https://yunussemrey.github.io/">
+  <meta name="theme-color" content="#1b4aa0">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yunus Emre | Yazılım Geliştirici ve Bilgi İşlem">
+  <meta property="og:description" content="Java, Android ve SQL Server projelerim, iş deneyimim ve iletişim bilgilerim.">
+  <meta property="og:url" content="https://yunussemrey.github.io/">
+  <meta property="og:locale" content="tr_TR">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tema: sayfa çizilmeden önce uygula, yanıp sönmeyi engeller -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (dark ? "dark" : "light"));
+      } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yunus Emre",
+    "jobTitle": "Yazılım Geliştirici",
+    "url": "https://yunussemrey.github.io/",
+    "address": { "@type": "PostalAddress", "addressLocality": "İstanbul", "addressCountry": "TR" },
+    "alumniOf": "Anadolu Üniversitesi",
+    "knowsAbout": ["Java", "Android", "Kotlin", "Spring Boot", "SQL Server", "MySQL"],
+    "sameAs": [
+      "https://github.com/Yunussemrey",
+      "https://www.linkedin.com/in/yunussemrey/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#icerik">İçeriğe geç</a>
+
+  <header class="top" id="top">
+    <div class="wrap top__bar">
+      <a class="brand" href="#top" aria-label="Yunus Emre, sayfanın başı">
+        <span class="brand__mark">YE</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Ana menü">
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#deneyim">Deneyim</a>
+        <a href="#yetenekler">Yetenekler</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <div class="top__actions">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.5-.05-1-.14-1.47A6 6 0 0 1 13.47 3.14 9.1 9.1 0 0 0 12 3z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 7h16v2H4zm0 4h16v2H4zm0 4h16v2H4z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="icerik">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="status"><span class="status__dot" aria-hidden="true"></span>Yeni iş fırsatlarına açığım</p>
+          <h1>Yunus Emre</h1>
+          <p class="lead">Java ve Android uygulamaları geliştiriyorum, SQL Server ve saha sistemlerini ayakta tutuyorum. Şu an Parkjet'te otopark yazılımlarının veri ve entegrasyon tarafında çalışıyorum.</p>
+          <div class="cta">
+            <a class="btn btn--primary" href="#projeler">Projelerime bak</a>
+            <a class="btn" href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn'de yaz</a>
+            <a class="btn" id="cvBtn" href="assets/cv/Yunus-Emre-CV.pdf" download>CV indir</a>
+          </div>
+        </div>
+
+        <div class="hero__plate">
+          <button class="plate" id="plate" type="button" aria-label="Plakayı yeniden okut">
+            <span class="plate__band" aria-hidden="true"><i></i>TR</span>
+            <span class="plate__chars" id="plateChars" aria-hidden="true">34 YE 001</span>
+            <span class="plate__scan" aria-hidden="true"></span>
+          </button>
+          <p class="readout" id="readout" aria-live="polite">Plaka okundu: Yunus Emre, yazılım ve bilgi işlem.</p>
+          <p class="hint">Plakaya tıklarsan yeniden okutursun.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HAKKIMDA -->
+    <section class="section" id="hakkimda">
+      <div class="wrap section__grid">
+        <h2>Hakkımda</h2>
+        <div class="prose">
+          <p>Anadolu Üniversitesi Bilgisayar Programcılığı mezunuyum. Java tabanlı backend ve Android uygulamaları geliştirerek başladım; bugün işimin yarısı yazılım, yarısı da sistemlerin sahada sorunsuz çalışması.</p>
+          <p>Gün içinde SQL Server job'larını, plaka tanıma servislerini ve kiosk uygulamalarını yönetiyorum. Bir şey bozulduğunda nedenini bulmayı, tekrarlanmasın diye de kalıcı çözüm yazmayı seviyorum.</p>
+          <p>Okulda ve online eğitimlerle temelimi attım; GitHub'daki projelerim bu sürecin kaydı. İngilizcem B1 seviyesinde.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DENEYİM -->
+    <section class="section" id="deneyim">
+      <div class="wrap section__grid">
+        <h2>Deneyim</h2>
+        <ol class="timeline">
+          <li>
+            <div class="timeline__when">Şu an</div>
+            <div class="timeline__body">
+              <h3>Parkjet</h3>
+              <p class="role">Yazılım ve bilgi işlem</p>
+              <ul>
+                <li>SQL Server veritabanlarında job, bakım planı, yedekleme ve arşivleme süreçlerini kuruyor ve izliyorum.</li>
+                <li>Plaka tanıma (LPR) servislerinin entegrasyonunu yapıyor, kimlik doğrulama ve yapılandırma hatalarını çözüyorum.</li>
+                <li>Kiosk uygulamalarını (Python, Flask) kurup sahada çalışır halde tutuyorum.</li>
+                <li>Operasyon ekibi için SQL raporları hazırlıyorum, örneğin indirimli araç kayıtlarının dönemsel dökümü.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="timeline__when">Önceki</div>
+            <div class="timeline__body">
+              <h3>Eğitim ve kendi projelerim</h3>
+              <p class="role">Anadolu Üniversitesi, Bilgisayar Programcılığı</p>
+              <ul>
+                <li>Java, Kotlin ve Android ile uygulamalar ve arayüz çalışmaları geliştirdim.</li>
+                <li>Online IT ve bilgi işlem eğitimleri aldım.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- YETENEKLER -->
+    <section class="section" id="yetenekler">
+      <div class="wrap section__grid">
+        <h2>Yetenekler</h2>
+        <dl class="skills">
+          <div><dt>Mobil ve backend</dt><dd>Java, Kotlin, Android Studio, Spring Boot, REST API tasarımı, Flutter (başlangıç)</dd></div>
+          <div><dt>Veritabanı</dt><dd>SQL Server, T-SQL, MySQL, job ve bakım planları, yedekleme ve arşivleme</dd></div>
+          <div><dt>Web ve betik</dt><dd>HTML, CSS, JavaScript, Python (Flask), WordPress</dd></div>
+          <div><dt>Sistem ve IT</dt><dd>Windows ortamları, ağ, kamera ve plaka tanıma entegrasyonu, saha desteği</dd></div>
+          <div><dt>Yaklaşım</dt><dd>OOP, SOLID, temiz kod, MVC, Git ve GitHub</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- PROJELER -->
+    <section class="section" id="projeler">
+      <div class="wrap">
+        <div class="projects__head">
+          <h2>Projeler</h2>
+          <p class="note">Doğrudan GitHub hesabımdan çekiliyor. Sol kenarda sarı çizgi olanlar GitHub'da sabitlediğim projeler.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Dile göre filtrele"></div>
+        <ul class="repos" id="repos" aria-live="polite">
+          <li class="repos__state">Projeler yükleniyor…</li>
+        </ul>
+        <div class="repos__more">
+          <button class="btn" id="moreBtn" type="button" hidden>Hepsini göster</button>
+          <a class="btn" href="https://github.com/Yunussemrey?tab=repositories" target="_blank" rel="noopener">GitHub'da tüm depolar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section class="section" id="iletisim">
+      <div class="wrap section__grid">
+        <h2>İletişim</h2>
+        <div class="contact">
+          <p class="contact__lead">İş teklifi, proje ya da sadece fikir alışverişi için LinkedIn'den yazabilirsin. Güncel işlerimi orada paylaşıyorum.</p>
+          <ul class="contact__links">
+            <li><a href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn<span>linkedin.com/in/yunussemrey</span></a></li>
+            <li><a href="https://github.com/Yunussemrey" target="_blank" rel="noopener">GitHub<span>github.com/Yunussemrey</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>© <span id="year">2026</span> Yunus Emre. İstanbul.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/hero.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
