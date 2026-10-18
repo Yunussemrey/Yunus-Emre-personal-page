@@ -1,0 +1,15 @@
+{
+  "positions": [
+    {
+      "company": "Parkjet",
+      "role": "Yazılım ve bilgi işlem",
+      "period": "Şu an",
+      "details": [
+        "SQL Server veritabanlarında job, bakım planı, yedekleme ve arşivleme süreçlerini kuruyor ve izliyorum.",
+        "Plaka tanıma servislerinin entegrasyonunu yapıyor, kimlik doğrulama ve yapılandırma sorunlarını çözüyorum.",
+        "Python ve Flask tabanlı kiosk uygulamalarını sahada kurup çalışır durumda tutuyorum.",
+        "Operasyon ekibi için SQL raporları hazırlıyor, veri ve entegrasyon süreçlerine destek veriyorum."
+      ]
+    }
+  ]
+}

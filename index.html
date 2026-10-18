@@ -7,7 +7,7 @@
   <meta name="description" content="Yunus Emre: Java, Android ve SQL Server odaklı yazılım geliştirici. Projeler, iş deneyimi ve iletişim bilgileri.">
   <meta name="author" content="Yunus Emre">
   <link rel="canonical" href="https://yunussemrey.github.io/">
-  <meta name="theme-color" content="#1b4aa0">
+  <meta name="theme-color" content="#101b26">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Yunus Emre | Yazılım Geliştirici ve Bilgi İşlem">
@@ -25,9 +25,8 @@
     (function () {
       try {
         var saved = localStorage.getItem("theme");
-        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-theme", saved || (dark ? "dark" : "light"));
-      } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+        document.documentElement.setAttribute("data-theme", saved || "dark");
+      } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }
     })();
   </script>
 
@@ -58,7 +57,7 @@
   <header class="top" id="top">
     <div class="wrap top__bar">
       <a class="brand" href="#top" aria-label="Yunus Emre, sayfanın başı">
-        <span class="brand__mark">YE</span>
+        <span class="brand__mark">ye<span>.</span></span><span class="brand__label">YUNUS EMRE<span>YAZILIM &amp; BİLGİ İŞLEM</span></span>
       </a>
       <nav class="nav" id="nav" aria-label="Ana menü">
         <a href="#hakkimda">Hakkımda</a>
@@ -79,36 +78,55 @@
   </header>
 
   <main id="icerik">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__text">
-          <p class="status"><span class="status__dot" aria-hidden="true"></span>Yeni iş fırsatlarına açığım</p>
-          <h1>Yunus Emre</h1>
-          <p class="lead">Java ve Android uygulamaları geliştiriyorum, SQL Server ve saha sistemlerini ayakta tutuyorum. Şu an Parkjet'te otopark yazılımlarının veri ve entegrasyon tarafında çalışıyorum.</p>
-          <div class="cta">
-            <a class="btn btn--primary" href="#projeler">Projelerime bak</a>
-            <a class="btn" href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn'de yaz</a>
-            <a class="btn" id="cvBtn" href="assets/cv/Yunus-Emre-CV.pdf" download>CV indir</a>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__ambient" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero__grid">
+          <div class="portrait" id="portrait">
+            <div class="portrait__grid" aria-hidden="true"></div>
+            <span class="portrait__label"><span class="status__dot"></span>İSTANBUL, TR</span>
+            <img class="portrait__image" src="assets/img/portrait.png" alt="Yunus Emre" width="1086" height="1448" fetchpriority="high">
+            <div class="portrait__caption"><span class="mono">// merhaba, ben</span><strong>Yunus Emre<span>_</span></strong><span>Yazılım geliştirici &amp; bilgi işlem</span></div>
+            <span class="portrait__corner" aria-hidden="true">&lt;/&gt;</span>
+          </div>
+          <div class="hero__text">
+            <p class="eyebrow"><span></span>YAZILIMIN ARKASINDA, SİSTEMİN İÇİNDE.</p>
+            <h1 id="heroTitle">Kod yazıyorum.<br><span>Sistemleri ayakta</span><br>tutuyorum.</h1>
+            <p class="lead">Java ve Android’den SQL Server’a; uygulama geliştirme ile sahadaki sistemlerin kesiştiği yerde çalışıyorum. Fikri çalışan koda, sorunu kalıcı çözüme dönüştürüyorum.</p>
+            <div class="stack" aria-label="Odaklandığım teknolojiler"><span>Java</span><span>Android</span><span>SQL Server</span><span>Python</span></div>
+            <div class="cta">
+              <a class="btn btn--primary" href="#projeler">Projelerimi keşfet <svg class="arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+              <a class="btn" href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn <svg class="arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+              <a class="btn btn--text" id="cvBtn" href="assets/cv/Yunus-Emre-CV.pdf" download hidden>CV indir ↓</a>
+            </div>
+            <p class="availability"><span class="status__dot"></span>Yeni iş fırsatlarına açığım</p>
           </div>
         </div>
-
-        <div class="hero__plate">
-          <button class="plate" id="plate" type="button" aria-label="Plakayı yeniden okut">
-            <span class="plate__band" aria-hidden="true"><i></i>TR</span>
-            <span class="plate__chars" id="plateChars" aria-hidden="true">34 YE 001</span>
-            <span class="plate__scan" aria-hidden="true"></span>
-          </button>
-          <p class="readout" id="readout" aria-live="polite">Plaka okundu: Yunus Emre, yazılım ve bilgi işlem.</p>
-          <p class="hint">Plakaya tıklarsan yeniden okutursun.</p>
+        <div class="workspace" aria-label="Teknik profilim">
+          <div class="workspace__bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>yunus-emre / developer.json</span><span class="workspace__type">UTF-8</span></div>
+          <div class="workspace__body">
+            <div class="code-profile"><span class="code-profile__line"><b>01</b><span>{</span></span>
+              <span class="code-profile__line"><b>02</b><span>  <em>"role"</em>: <q>Yazılım &amp; Bilgi İşlem</q>,</span></span>
+              <span class="code-profile__line"><b>03</b><span>  <em>"focus"</em>: [<q>Backend</q>, <q>Mobil</q>, <q>Sistem</q>],</span></span>
+              <span class="code-profile__line"><b>04</b><span>  <em>"approach"</em>: <q>Kalıcı çözümler, temiz kod.</q></span></span>
+              <span class="code-profile__line"><b>05</b><span>}</span></span>
+            </div>
+            <div class="github-profile" id="githubProfile">
+              <div class="github-profile__head"><span class="mono">$ github --profile</span><a href="https://github.com/Yunussemrey" target="_blank" rel="noopener" aria-label="GitHub profilimi aç"><svg class="arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+              <a class="github-profile__user" href="https://github.com/Yunussemrey" target="_blank" rel="noopener">@Yunussemrey</a>
+              <div class="github-profile__stats" id="githubStats" hidden></div>
+              <p class="data-status" id="githubStatus" role="status">GitHub profili yükleniyor…</p>
+            </div>
+          </div>
         </div>
+        <a class="hero__scroll mono" href="#hakkimda">PROFİLİ KEŞFET <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
     <!-- HAKKIMDA -->
     <section class="section" id="hakkimda">
       <div class="wrap section__grid">
-        <h2>Hakkımda</h2>
+        <div class="section__heading"><span class="eyebrow">01 / BEN KİMİM?</span><h2>Koddan<br>gerçek hayata.</h2></div>
         <div class="prose">
           <p>Anadolu Üniversitesi Bilgisayar Programcılığı mezunuyum. Java tabanlı backend ve Android uygulamaları geliştirerek başladım; bugün işimin yarısı yazılım, yarısı da sistemlerin sahada sorunsuz çalışması.</p>
           <p>Gün içinde SQL Server job'larını, plaka tanıma servislerini ve kiosk uygulamalarını yönetiyorum. Bir şey bozulduğunda nedenini bulmayı, tekrarlanmasın diye de kalıcı çözüm yazmayı seviyorum.</p>
@@ -120,40 +138,20 @@
     <!-- DENEYİM -->
     <section class="section" id="deneyim">
       <div class="wrap section__grid">
-        <h2>Deneyim</h2>
-        <ol class="timeline">
-          <li>
-            <div class="timeline__when">Şu an</div>
-            <div class="timeline__body">
-              <h3>Parkjet</h3>
-              <p class="role">Yazılım ve bilgi işlem</p>
-              <ul>
-                <li>SQL Server veritabanlarında job, bakım planı, yedekleme ve arşivleme süreçlerini kuruyor ve izliyorum.</li>
-                <li>Plaka tanıma (LPR) servislerinin entegrasyonunu yapıyor, kimlik doğrulama ve yapılandırma hatalarını çözüyorum.</li>
-                <li>Kiosk uygulamalarını (Python, Flask) kurup sahada çalışır halde tutuyorum.</li>
-                <li>Operasyon ekibi için SQL raporları hazırlıyorum, örneğin indirimli araç kayıtlarının dönemsel dökümü.</li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="timeline__when">Önceki</div>
-            <div class="timeline__body">
-              <h3>Eğitim ve kendi projelerim</h3>
-              <p class="role">Anadolu Üniversitesi, Bilgisayar Programcılığı</p>
-              <ul>
-                <li>Java, Kotlin ve Android ile uygulamalar ve arayüz çalışmaları geliştirdim.</li>
-                <li>Online IT ve bilgi işlem eğitimleri aldım.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
+        <div class="section__heading"><span class="eyebrow">02 / DENEYİM</span><h2>Ürettiğim işler.<br>Çözdüğüm sorunlar.</h2><a class="text-link" href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn profilim <svg class="arrow-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a><p class="data-status" id="experienceStatus" role="status">Kayıtlı deneyim bilgileri</p></div>
+        <div>
+          <ol class="timeline" id="experienceList">
+            <li><div class="timeline__when">Şu an</div><div class="timeline__body"><h3>Parkjet</h3><p class="role">Yazılım ve bilgi işlem</p><ul><li>SQL Server job, yedekleme, bakım ve arşivleme süreçleri.</li><li>Plaka tanıma servisleri, kiosk uygulamaları ve saha entegrasyonları.</li><li>Operasyon ekibi için SQL raporları ve teknik destek.</li></ul></div></li>
+          </ol>
+          <div class="education"><span class="mono">EĞİTİM</span><h3>Anadolu Üniversitesi</h3><p>Bilgisayar Programcılığı</p></div>
+        </div>
       </div>
     </section>
 
     <!-- YETENEKLER -->
     <section class="section" id="yetenekler">
       <div class="wrap section__grid">
-        <h2>Yetenekler</h2>
+        <div class="section__heading"><span class="eyebrow">03 / ARAÇ KUTUM</span><h2>Doğru araç.<br>Sağlam temel.</h2></div>
         <dl class="skills">
           <div><dt>Mobil ve backend</dt><dd>Java, Kotlin, Android Studio, Spring Boot, REST API tasarımı, Flutter (başlangıç)</dd></div>
           <div><dt>Veritabanı</dt><dd>SQL Server, T-SQL, MySQL, job ve bakım planları, yedekleme ve arşivleme</dd></div>
@@ -168,9 +166,10 @@
     <section class="section" id="projeler">
       <div class="wrap">
         <div class="projects__head">
-          <h2>Projeler</h2>
-          <p class="note">Doğrudan GitHub hesabımdan çekiliyor. Sol kenarda sarı çizgi olanlar GitHub'da sabitlediğim projeler.</p>
+          <div class="section__heading"><span class="eyebrow">04 / GITHUB</span><h2>Kodun çalıştığı yer.</h2></div>
+          <p class="note">GitHub hesabımdaki açık kaynak çalışmalarım. İşaretli projeler seçtiğim öne çıkan çalışmalar.</p>
         </div>
+        <p class="data-status" id="projectsStatus" role="status">GitHub projeleri yükleniyor…</p>
         <div class="filters" id="filters" role="group" aria-label="Dile göre filtrele"></div>
         <ul class="repos" id="repos" aria-live="polite">
           <li class="repos__state">Projeler yükleniyor…</li>
@@ -185,10 +184,13 @@
     <!-- İLETİŞİM -->
     <section class="section" id="iletisim">
       <div class="wrap section__grid">
-        <h2>İletişim</h2>
+        <div class="section__heading"><span class="eyebrow">05 / İLETİŞİM</span><h2>Birlikte<br>üretelim.</h2></div>
         <div class="contact">
-          <p class="contact__lead">İş teklifi, proje ya da sadece fikir alışverişi için LinkedIn'den yazabilirsin. Güncel işlerimi orada paylaşıyorum.</p>
+          <p class="contact__lead">İş teklifi, proje veya fikir alışverişi için bana e-posta gönderebilirsin. Birlikte neler yapabileceğimizi konuşalım.</p>
+          <a class="btn btn--primary" href="mailto:yunussemrey1@gmail.com?subject=Web%20sitenizden%20ileti%C5%9Fim">Bana e-posta gönder <span aria-hidden="true">→</span></a>
+          <p class="data-status">Düğme e-posta uygulamanı açar. Adresimi kopyalayıp Gmail üzerinden de yazabilirsin.</p>
           <ul class="contact__links">
+            <li><a href="mailto:yunussemrey1@gmail.com">E-posta<span>yunussemrey1@gmail.com</span></a></li>
             <li><a href="https://www.linkedin.com/in/yunussemrey/" target="_blank" rel="noopener">LinkedIn<span>linkedin.com/in/yunussemrey</span></a></li>
             <li><a href="https://github.com/Yunussemrey" target="_blank" rel="noopener">GitHub<span>github.com/Yunussemrey</span></a></li>
           </ul>
@@ -204,9 +206,12 @@
   </footer>
 
   <script src="assets/js/config.js"></script>
+  <script src="assets/js/data.js"></script>
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/hero.js"></script>
   <script src="assets/js/projects.js"></script>
+  <script src="assets/js/profile.js"></script>
+  <script src="assets/js/experience.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

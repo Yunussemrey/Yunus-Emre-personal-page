@@ -1,47 +1,19 @@
-/* Hero: plakayı "okutma" animasyonu. Rastgele karakterler soldan sağa gerçek plakaya dönüşür. */
+/* Fotoğrafta hafif fare hareketi; azaltılmış hareket tercihine saygı duyar. */
 (function () {
-  var plate = document.getElementById("plate");
-  var chars = document.getElementById("plateChars");
-  var readout = document.getElementById("readout");
-  if (!plate || !chars) return;
-
-  var TARGET = "34 YE 001";
-  var POOL = "ABCDEFGHJKLMNPRSTUVYZ0123456789";
-  var DONE_TEXT = "Plaka okundu: Yunus Emre, yazılım ve bilgi işlem.";
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var running = false;
-
-  function rand() { return POOL.charAt(Math.floor(Math.random() * POOL.length)); }
-
-  function scan() {
-    if (running) return;
-    if (reduce) { chars.textContent = TARGET; readout.textContent = DONE_TEXT; return; }
-    running = true;
-    readout.textContent = "Plaka okunuyor…";
-    plate.classList.remove("is-scanning");
-    void plate.offsetWidth; // animasyonu yeniden başlat
-    plate.classList.add("is-scanning");
-
-    var duration = 1300, start = performance.now();
-    (function frame(now) {
-      var p = Math.min((now - start) / duration, 1);
-      var resolved = Math.floor(p * TARGET.length);
-      var out = "";
-      for (var i = 0; i < TARGET.length; i++) {
-        var c = TARGET.charAt(i);
-        out += (c === " " || i < resolved) ? c : rand();
-      }
-      chars.textContent = out;
-      if (p < 1) { requestAnimationFrame(frame); }
-      else {
-        chars.textContent = TARGET;
-        readout.textContent = DONE_TEXT;
-        plate.classList.remove("is-scanning");
-        running = false;
-      }
-    })(start);
+  var portrait = document.getElementById("portrait");
+  var motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var pointer = window.matchMedia("(pointer: fine)");
+  if (!portrait) return;
+  function reset() {
+    portrait.style.removeProperty("--portrait-x");
+    portrait.style.removeProperty("--portrait-y");
   }
-
-  plate.addEventListener("click", scan);
-  window.addEventListener("load", function () { setTimeout(scan, 350); });
+  portrait.addEventListener("pointermove", function (event) {
+    if (motion.matches || !pointer.matches) return;
+    var box = portrait.getBoundingClientRect();
+    portrait.style.setProperty("--portrait-x", ((event.clientX - box.left) / box.width - .5) * 10 + "px");
+    portrait.style.setProperty("--portrait-y", ((event.clientY - box.top) / box.height - .5) * 8 + "px");
+  });
+  portrait.addEventListener("pointerleave", reset);
+  motion.addEventListener("change", reset);
 })();
