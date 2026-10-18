@@ -56,6 +56,16 @@ Tarayıcıda masaüstü/mobil düzeni, tema değişimi, mobil menü, fotoğraf, 
 
 ## Yayınlama
 
-GitHub Pages statik dosyaları doğrudan yayınlayabilir. `index.html`, `sitemap.xml`, `robots.txt` içindeki alan adı ve yolları gerçek Pages adresine göre ayarla. Bu depo üzerinde yapılan düzenleme tek başına yayınlama yapmaz.
+1. Bu çalışma alanındaki değişiklikleri GitHub deposuna aktar: Codex arayüzünde PR oluşturma seçeneği varsa bir PR oluştur ve GitHub'da `master` dalına birleştir. Dosyaları elle yüklüyorsan yalnızca `index.html` değil, `assets/` klasöründeki yeni ve değişen dosyaları da aktar.
+2. GitHub'da `Yunussemrey/web-sayfas-` deposunu aç. **Settings → Pages** bölümüne git.
+3. **Build and deployment → Source** altında **Deploy from a branch** seç.
+4. Dal olarak **master**, klasör olarak **/ (root)** seç ve **Save** düğmesine bas.
+5. Pages dağıtımı tamamlandığında GitHub'ın gösterdiği site adresini aç. Özel alan adı yoksa proje adresi `https://yunussemrey.github.io/web-sayfas-/` olur. Sonraki değişiklikler `master` dalına gönderildiğinde yeniden yayımlanır.
+
+`index.html`, `sitemap.xml`, `robots.txt` içindeki alan adı ve yolları gerçek Pages adresine göre ayarla. Bulut geliştirme ortamını yayımlamak GitHub Pages sitesini yayımlamaz; bunun için değişikliklerin GitHub'a aktarılması gerekir.
+
+## E-posta iletişimi
+
+İletişim bölümünde `yunussemrey1@gmail.com` adresi ve bir `mailto:` düğmesi bulunur. Düğme ziyaretçinin e-posta uygulamasında alıcı ve konu alanı hazır bir ileti açar; ziyaretçi iletiyi kendisi gönderir. Adres ayrıca kopyalanabilir metin olarak gösterilir. Site üzerinden doğrudan gönderim yapan bir form için ayrı bir form/e-posta servisi gerekir; şu an böyle bir servis bağlı değildir.
 
 Dış kaynaklar: `api.github.com`, `fonts.googleapis.com`, `fonts.gstatic.com`. Dış fontlar yüklenmese de sistem yazı tipleriyle site kullanılabilir.
