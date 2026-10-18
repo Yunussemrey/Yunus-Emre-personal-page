@@ -46,3 +46,6 @@ img, svg { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
 }
+
+[hidden] { display: none !important; }
+.mono { font-family: var(--font-mono); }

@@ -4,6 +4,7 @@
   var list = document.getElementById("repos");
   var filters = document.getElementById("filters");
   var moreBtn = document.getElementById("moreBtn");
+  var status = document.getElementById("projectsStatus");
   if (!cfg || !list) return;
 
   var COLORS = { Java: "#b07219", Kotlin: "#A97BFF", JavaScript: "#f1e05a", HTML: "#e34c26", CSS: "#563d7c", Dart: "#00B4AB", Python: "#3572A5", "C#": "#178600", PHP: "#4F5D95" };
@@ -76,17 +77,19 @@
   }
 
   function useFallback() {
+    if (status) { status.textContent = "GitHub’a ulaşılamadı · Kayıtlı öne çıkan projeler gösteriliyor"; status.dataset.state = "fallback"; }
     repos = cfg.pinned.map(function (n) { return normalize({ name: n }); });
     buildFilters(); render();
   }
 
   moreBtn.addEventListener("click", function () { expanded = !expanded; render(); });
 
-  fetch("https://api.github.com/users/" + cfg.githubUser + "/repos?per_page=100&sort=pushed")
-    .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
+  window.fetchSiteJSON("https://api.github.com/users/" + encodeURIComponent(cfg.githubUser) + "/repos?per_page=100&sort=pushed")
     .then(function (data) {
+      if (!Array.isArray(data)) throw new Error("Invalid repository list");
       repos = data.filter(function (r) { return !r.fork; }).map(normalize).sort(sortRepos);
       if (!repos.length) return useFallback();
+      if (status) { status.textContent = "● GitHub’dan güncellendi · " + repos.length + " açık kaynak proje"; status.dataset.state = "live"; }
       buildFilters(); render();
     })
     .catch(useFallback);

@@ -1,7 +1,11 @@
 /* Sitenin tek ayar dosyası. Kendi bilgilerini buradan güncelle. */
 window.SITE = {
   githubUser: "Yunussemrey",
-  // GitHub'da sabitlediğin projeler (öne çıkar). Sıra burada yazıldığı gibi.
+  // Statik CV dosyası. Yetkili bir servis varsa aynı JSON şemasıyla HTTPS URL kullanılabilir.
+  // API anahtarlarını bu dosyaya koyma. "synced" yalnızca gerçek bir senkronizasyon kaynağı için.
+  experienceFeed: "assets/data/experience.json",
+  experienceFeedMode: "manual",
+  // Sitede öne çıkarmak için seçtiğin projeler. GitHub sabitlemeleri API'den alınmaz.
   pinned: [
     "BenimNotumApp",
     "KacmaBendenGameApp",

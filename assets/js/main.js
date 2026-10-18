@@ -26,6 +26,6 @@
   // CV dosyası yoksa butonu gizle
   var cv = document.getElementById("cvBtn");
   if (cv && location.protocol.indexOf("http") === 0) {
-    fetch(cv.getAttribute("href"), { method: "HEAD" }).then(function (r) { if (!r.ok) cv.hidden = true; }).catch(function () { cv.hidden = true; });
+    fetch(cv.getAttribute("href"), { method: "HEAD" }).then(function (r) { cv.hidden = !r.ok; }).catch(function () { cv.hidden = true; });
   }
 })();

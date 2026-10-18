@@ -1,44 +1,61 @@
-# Yunus Emre | Kişisel Portfolyo Sitesi
+# Yunus Emre | Yazılım & Bilgi İşlem
 
-Saf HTML, CSS ve JavaScript. Kurulum, derleme veya Node.js gerekmez.
+Kişisel web CV ve portfolyo. Saf HTML, CSS ve JavaScript; paket kurulumu, derleme, veritabanı veya Node.js gerekmez.
 
-## VS Code'da çalıştırma
-1. Klasörü VS Code ile aç (`File > Open Folder`).
-2. **Live Server** eklentisini kur (öneri olarak otomatik çıkar).
-3. `index.html` üzerinde sağ tık, **Open with Live Server**.
-Tarayıcıda `http://127.0.0.1:5500` açılır; kaydettikçe sayfa yenilenir.
+## Çalıştırma
 
-## Klasör yapısı
-```
-portfolio/
-├─ index.html            Sayfanın iskeleti ve metinler (hakkımda, deneyim, yetenekler)
-├─ assets/
-│  ├─ css/
-│  │  ├─ tokens.css      Renkler, fontlar (açık ve koyu tema)
-│  │  ├─ base.css        Sıfırlama, tipografi, butonlar
-│  │  └─ sections.css    Her bölümün stili
-│  ├─ js/
-│  │  ├─ config.js       GitHub kullanıcı adı, öne çıkan projeler (EN ÇOK BURAYI DÜZENLERSİN)
-│  │  ├─ theme.js        Açık/koyu tema
-│  │  ├─ hero.js         Plaka okutma animasyonu
-│  │  ├─ projects.js     GitHub API'den proje listesi ve filtre
-│  │  └─ main.js         Menü, aktif bölüm, CV kontrolü
-│  ├─ img/favicon.svg
-│  └─ cv/                CV PDF'ini buraya koy: Yunus-Emre-CV.pdf
-├─ robots.txt, sitemap.xml   Google için
-└─ .vscode/              Live Server ayarları
+Depo klasöründe:
+
+```sh
+python3 -m http.server 5500 --bind 127.0.0.1
 ```
 
-## Düzenlenecekler
-- `index.html`: Parkjet bölümündeki maddeleri, başlığını ve tarihleri kendi gerçeğine göre düzelt. Önceki deneyimlerini ekle.
-- `assets/js/config.js`: öne çıkan projeler ve açıklamaları.
-- `assets/cv/Yunus-Emre-CV.pdf`: CV'ni ekle.
-- `index.html`, `sitemap.xml`, `robots.txt` içindeki `yunussemrey.github.io` adresini kendi alan adınla değiştir.
-- E-posta eklemek istersen İletişim bölümüne bir `<li>` ekle.
+VS Code Live Server da kullanılabilir. Dosyayı doğrudan `file://` ile açmak yerine HTTP sunucusu kullan; CV verileri JSON üzerinden yüklenir.
 
-## Google'da yayınlama (ücretsiz)
-1. GitHub'da `yunussemrey.github.io` adında yeni bir **public** depo aç.
-2. Bu klasörün içindekileri depoya yükle (`git init`, `git add .`, `git commit`, `git push`).
-3. Depoda **Settings > Pages > Deploy from a branch > main / (root)** seç. Birkaç dakika sonra site `https://yunussemrey.github.io` adresinde yayında olur.
-4. **Google Search Console**'a gir, adresi ekle, `sitemap.xml` dosyasını gönder. Google birkaç gün içinde indekslemeye başlar.
-5. İsteğe bağlı: kendi alan adını (örn. yunusemre.dev) Pages ayarlarından bağlayabilirsin.
+## İçerik ve tasarım
+
+- `index.html`: ana sayfa, hakkımda, yetenekler, iletişim ve veri alınamadığında temel deneyim içeriği.
+- `assets/img/portrait.png`: sağlanan fotoğraftan hazırlanan şeffaf arka planlı portre.
+- `assets/css/tokens.css`: açık/koyu tema renkleri ve yazı tipleri.
+- `assets/js/config.js`: GitHub kullanıcı adı, öne çıkarılan projeler ve deneyim kaynağı.
+- `assets/data/experience.json`: şirket, unvan, dönem ve açıklamalar. Tarih ve iş yerlerini doğrulanmış bilgilerle güncelle. Eğitim ayrı olarak HTML içinde tutulur.
+- `assets/cv/Yunus-Emre-CV.pdf`: isteğe bağlı indirilebilir CV. Dosya yoksa düğme gizlenir.
+
+Portre masaüstünde fareyi hafifçe takip eder. Azaltılmış hareket tercihi açıkken hareket kapalıdır. Mobil menü ve tema düğmesi klavyeyle kullanılabilir.
+
+## GitHub canlı verileri
+
+Profilin açık depo/takipçi sayıları ve herkese açık, fork olmayan projeler doğrudan `api.github.com` üzerinden yüklenir. Token gerekmez. İstekler 8 saniyede zaman aşımına uğrar. API erişimi yoksa profil bağlantısı ve yapılandırmadaki altı proje gösterilir; bu durumda arayüz yedek veriyi açıkça belirtir. GitHub sabitlemeleri API'den okunmaz; `pinned` sitedeki editoryal seçimdir.
+
+## LinkedIn deneyim verisi
+
+LinkedIn profil bağlantısı, iş geçmişini okumaya yetki vermez. Normal LinkedIn giriş/OpenID erişimi de tam iş geçmişini sağlamaz. Bu statik site LinkedIn'i kazımaz, oturum çerezi istemez ve iş geçmişini canlı alıyormuş gibi göstermez.
+
+Varsayılan deneyim kaynağı `assets/data/experience.json` dosyasıdır. LinkedIn deneyim metnini veya profil dışa aktarımındaki ilgili bilgileri bu dosyaya aktarabilirsin. Mevcut Parkjet kaydı önceki site içeriğinden korunmuştur; başlangıç/bitiş tarihleri ve başka iş yerleri uydurulmamıştır.
+
+Otomatik senkronizasyon için LinkedIn tarafından yetkilendirilmiş ve iş deneyimine erişebilen bir sunucu entegrasyonu gerekir. Böyle bir servis sağlandığında, aşağıdaki şemada herkese açık CV verisi döndüren adresini `experienceFeed` olarak ayarla; `experienceFeedMode` değerini `synced` yap. Kaynak her sayfa açılışında istenir. Servisin LinkedIn'den veri yenilemesi servisin sorumluluğundadır; yalnızca bu ayarı değiştirmek LinkedIn bağlantısı oluşturmaz. Farklı alan adı için CORS izni gerekir. Gizli anahtarlar ve erişim tokenları tarayıcı koduna veya depoya konulmamalıdır.
+
+```json
+{
+  "positions": [
+    {
+      "company": "Şirket adı",
+      "role": "Unvan",
+      "period": "Başlangıç – bitiş / devam ediyor",
+      "details": ["İş ve sorumluluk açıklaması"]
+    }
+  ]
+}
+```
+
+Veri kaynağı yüklenmezse veya geçersizse HTML içindeki temel deneyim kaydı korunur. Birden fazla deneyim kaynağın verdiği sırayla gösterilir. Ekranda gösterilen içerik metin olarak işlenir.
+
+## Doğrulama
+
+Tarayıcıda masaüstü/mobil düzeni, tema değişimi, mobil menü, fotoğraf, deneyim listesi, GitHub proje filtreleri ve CV dosyası yokken düğmenin gizlenmesini kontrol et. GitHub erişimini engelleyerek yedek veri durumunu da doğrula.
+
+## Yayınlama
+
+GitHub Pages statik dosyaları doğrudan yayınlayabilir. `index.html`, `sitemap.xml`, `robots.txt` içindeki alan adı ve yolları gerçek Pages adresine göre ayarla. Bu depo üzerinde yapılan düzenleme tek başına yayınlama yapmaz.
+
+Dış kaynaklar: `api.github.com`, `fonts.googleapis.com`, `fonts.gstatic.com`. Dış fontlar yüklenmese de sistem yazı tipleriyle site kullanılabilir.
